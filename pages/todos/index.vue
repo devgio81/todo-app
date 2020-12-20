@@ -15,8 +15,8 @@
               class="mx-4"
               inset
               vertical
-            ></v-divider>
-            <v-spacer></v-spacer>
+            />
+            <v-spacer />
             <v-btn
               color="primary"
               dark
@@ -90,7 +90,7 @@ export default {
 
   methods: {
     changeStatus (id, event) {
-
+      this.$store.dispatch('todos/changeStatus', { id, status: event })
     },
 
     deleteTodo (item) {

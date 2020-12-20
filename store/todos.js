@@ -57,6 +57,14 @@ export const actions = {
     }
   },
 
+  async changeStatus ({ commit }, data) {
+    try {
+      await this.$axios.$post('/tasks/status/' + data.id + '/' + (data.status ? 1 : 0))
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
   async updateTodoById ({ commit }, data) {
     try {
       const res = await this.$axios.$put('/tasks/' + data.id, {
