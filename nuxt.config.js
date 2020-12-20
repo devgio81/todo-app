@@ -23,6 +23,9 @@ export default {
   plugins: [
   ],
 
+  router: {
+    routeNameSplitter: '/'
+  },
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
@@ -41,7 +44,14 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'https://todo.test/api',
+    headers: {
+      common: {
+        Accept: 'application/json'
+      }
+    }
+  },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
@@ -64,5 +74,18 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
   }
+
 }
